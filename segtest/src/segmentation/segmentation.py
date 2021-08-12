@@ -12,9 +12,9 @@ import sys
 import os
 from subprocess import run
 
-print(len(locals()))
+#print(len(locals()))
 pathname = os.path.dirname(__file__)
-print(pathname)
+print("PATHNAME ES: " + pathname)
 
 #Global Constants
 ## Number of points.

@@ -1,4 +1,5 @@
 include src/segmentation/*.cpp
+include src/segmentation/*.py
 recursive-include src/segmentation/data/*
 graft src/segmentation/data
 

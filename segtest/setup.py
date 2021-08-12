@@ -27,7 +27,7 @@ class PostDevelopCommand(develop):
 
 
 setuptools.setup(name='segtest',
-      version='0.0.32',
+      version='0.0.33',
       description='Segmentation Test + example',
       url='https://github.com/GonzaloSabat/MT',
       author='Gonzalo Sabat',
