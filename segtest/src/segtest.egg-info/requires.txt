@@ -1,6 +1,0 @@
-numpy
-dipy
-joblib
-matplotlib
-sklearn
-networkx
