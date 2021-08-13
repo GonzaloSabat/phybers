@@ -1,0 +1,2 @@
+python3 -m segmentation 21 /home/gsabat/anaconda3/lib/python3.8/site-packages/segmentation/data/subjects/118225/118225.bundles 118225 /home/gsabat/anaconda3/lib/python3.8/site-packages/segmentation/data/atlas_flargas/bundles /home/gsabat/anaconda3/lib/python3.8/site-packages/segmentation/data/atlas_flargas/atlas_info.txt /home/gsabat/MT/outputs/result/seg_result /home/gsabat/MT/outputs/result/idseg_result
+
