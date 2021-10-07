@@ -11,6 +11,7 @@
 import sys
 import os
 from subprocess import run
+from pathlib import Path
 
 print(len(locals()))
 pathname = os.path.dirname(__file__)
@@ -22,7 +23,6 @@ print("ARG3: " + sys.argv[3])
 print("ARG4: " + sys.argv[4])
 print("ARG5: " + sys.argv[5])
 print("ARG6: " + sys.argv[6])
-print("ARG7: " + sys.argv[7])
 #Global Constants
 ## Number of points.
 npoints = sys.argv[1]
@@ -35,26 +35,33 @@ atlasdir = sys.argv[4]
 ## Atlas info file.
 atlasIformation = sys.argv[5]
 ## Output directory path for the segmentated fascicles for the subject.
-seg_resul = sys.argv[6]
-## Output directory path for the index of the original fibers for each detected fascicle.
-id_seg_result = sys.argv[7]
-#Functions
+result_path = sys.argv[6]
 
+aux = str(Path(result_path).parents[0])
 
-
-result_path = input ("Enter the path for the result folder to be created: ")
-if os.path.exists(result_path + "/result"):
-    print("Target directory exists. Checking if executable file exists: ")
+if os.path.exists(result_path):
+    print("Target directory exists.")
 else:
     print("Target directory does not exist in path. Creating it: ")
-    run(['mkdir', result_path + '/result'])
+    run(['mkdir', aux + '/result'])
     
-    if os.path.exists(result_path + "/result"):
-        print("Target directory exists noqw. Checking if executable file exists: ")
+    if os.path.exists(result_path):
+        print("Target directory has been created successfully.")
+
     else: 
         print("Target directory still doesn't exist. Exiting...")
         exit()
-        
+
+seg_resul = result_path + "/seg_bundles"
+run(['mkdir', seg_resul])
+id_seg_result = result_path + "/id_txt_seg"
+run(['mkdir', id_seg_result])
+
+
+## Output directory path for the index of the original fibers for each detected fascicle.
+
+#Functions
+ 
 if os.path.exists(pathname + "/main"):
     print("Found executable file. Running segmentation executable file: ")
 else:

@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
 import os
 from subprocess import run
-
+from pathlib import Path
 
 pathname = os.path.dirname(__file__)
+parent_path = str(Path(pathname).parents[0])
 print(pathname)
-print(pathname + "/../segmentation")
+print(parent_path)
+result_path = parent_path + "/result"
 
-result_path = input("Enter the path for the result folder to be created: ")
 print("The result directory will be created in: " + result_path)
 #Checking if the result directory exists. Else, the program won't run and an error while trying to run.
 
-if os.path.exists(result_path + "/result"):
+if os.path.exists(result_path):
     print("Target directory exists. Checking if executable file exists: ")
 else:
     print("Target directory does not exist in path. Creating it: ")
-    run(['mkdir', result_path + '/result'])
+    run(['mkdir', result_path])
     
-    if os.path.exists(result_path + "/result"):
+    if os.path.exists(result_path):
         print("Target directory exists now. Checking if executable file exists: ")
     else: 
         print("Target directory still doesn't exist. Exiting...")
@@ -49,3 +50,4 @@ seg_resul = result_path + "/result"
 id_seg_result = result_path + "/result"
 
 run([ pathname + "/.././main", npoints, fibrasdir, idsubj, atlasdir, atlasIformation, seg_resul, id_seg_result])
+

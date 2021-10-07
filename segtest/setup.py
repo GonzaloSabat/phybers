@@ -5,30 +5,11 @@ from setuptools.command.install import install
 import subprocess
 
 pathname = os.path.dirname(__file__)
-print("PATHNAME ES: " + pathname)
-
-class PostInstallCommand(install):
-    """Post-installation for installation mode."""
-    def run(self):
-        install.run(self)
-        pathname = os.path.dirname(__file__)
-        print("PATHNAME ES: " + pathname)
-        
-        #subprocess.run(["g++", "-std=c++14", "-O3", pathname + "/src/gsabat/Documents/segtest/Atlas_Fibras/main.cpp", "-o", "/home/gsabat/Documents/segtest/Atlas_Fibras/main", "-fopenmp", "-ffast-math"])
-        
-class PostDevelopCommand(develop):
-    """Post-installation for development mode."""
-    def run(self):
-        develop.run(self)
-        pathname = os.path.dirname(__file__)
-        print("PATHNAME ES: " + pathname)
-        
-        # PUT YOUR POST-INSTALL SCRIPT HERE or CALL A FUNCTION
 
 
 setuptools.setup(name='segtest',
-      version='0.0.33',
-      description='Segmentation Test + example',
+      version='0.0.39',
+      description='Segmentation + FFClust + HClust',
       url='https://github.com/GonzaloSabat/MT',
       author='Gonzalo Sabat',
       author_email='gsabat@udec.cl',
@@ -39,7 +20,6 @@ setuptools.setup(name='segtest',
       #packages=['segmentation'],
       #package_dir={'segmentation': 'src/segmentation'}
       include_package_data=True,
-      cmdclass={'develop': PostDevelopCommand,'install': PostInstallCommand,},
       install_requires=[
           'numpy',
           'dipy',

@@ -3,9 +3,19 @@ include src/segmentation/*.py
 recursive-include src/segmentation/data/*
 graft src/segmentation/data
 
-include src/FFClust/*.py
-include src/FFClust/*.jpg
-include src/FFClust/*.txt
-recursive-include src/FFClust/segmentation_clust_v1.1/*
-graft src/FFClust/segmentation_clust_v1.1
+include src/ffclust/*.py
+include src/ffclust/*.jpg
+include src/ffclust/*.txt
+recursive-include src/ffclust/segmentation_clust_v1.1/*
+graft src/ffclust/segmentation_clust_v1.1
+recursive-include src/ffclust/FibersTools/*
+graft src/ffclust/FibersTools/*
+
+include src/hclust/*.py
+include src/hclust/hierarchical/*.cpp
+include src/hclust/hierarchical/*.c
+include src/hclust/hierarchical/*.h
+include src/hclust/hierarchical/*.txt
+recursive-include src/hclust/data/*
+graft src/hclust/data/
 
